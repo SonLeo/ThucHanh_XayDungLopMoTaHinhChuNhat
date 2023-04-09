@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="display">
+        <canvas id="displayRectangle"></canvas>
+    </div>
+
+    <script>
+        class Rectangle {
+            constructor(width, height) {
+                this.width = width;
+                this.height = height;
+            }
+
+            getWidth() {
+                return this.width;
+            }
+
+            getHeight() {
+                return this.height;
+            }
+
+            getArea() {
+                return this.width * this.height;
+            }
+
+            getPerimeter() {
+                return 2 * (this.width + this.height);
+            }
+
+            display() {
+                let context = document.getElementById("displayRectangle").getContext("2d");
+                context.beginPath();
+                context.fillStyle = "#fa4b2a";
+                context.fillRect(20, 20, this.width, this.height);
+            }
+
+            setWidth(width) {
+                this.width = width;
+            }
+
+            setHeight(height) {
+                this.height = height;
+            }
+        }
+
+        let hinhChuNhat = new Rectangle(200, 100);
+        hinhChuNhat.setHeight(200);
+        hinhChuNhat.setWidth(250);
+        hinhChuNhat.display();
+        let area = hinhChuNhat.getArea();
+        let perimeter = hinhChuNhat.getPerimeter();
+        document.write(`Area: ${area}; Perimeter: ${perimeter}`);
+    </script>
+</body>
+</html>
